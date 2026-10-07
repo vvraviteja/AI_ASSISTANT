@@ -10,17 +10,18 @@ client = OpenAI(
 )
 
 model = os.getenv("MODEL")
-question = input("please ask me")
+question = input("Hello! How can I help you?")
 while question != "exit":
     response = client.chat.completions.create(
         model=model,
         messages=[
             {
+             
                 "role": "user",
                 "content": question
             }
         ]
     )
     print(response.choices[0].message.content)
-    question = input("please ask me")
+    question = input("How can I help you next?")
 
